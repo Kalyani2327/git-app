@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Git & GitHub Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* --- Collapsible Cards --- */
+    .qa-section {
+      display: none;
+      margin-top: 20px;
+    }
+    .qa-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+    .qa-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+    .qa-header label {
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .question-list {
+      margin-top: 10px;
+      padding-left: 25px;
+      display: block;
+    }
+    .btn.back {
+      margin-top: 10px;
+      background: #eee;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .btn.back:hover {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <header class="card-header">
+        <div>
+          <h1>Git & GitHub Quiz</h1>
+          <p class="subtitle">Pick a module and test your Git skills</p>
+        </div>
+        <div class="header-meta">
+          <div id="score-display">Score: 0</div>
+          <div id="timer">Time: —</div>
+        </div>
+      </header>
+
+      <!-- Module selection -->
+      <div id="moduleSelect" class="modules">
+        <h3>Select a module</h3>
+        <div class="module-list">
+          <button onclick="startQuiz('basics')" class="module">Basics</button>
+          <button onclick="startQuiz('git')" class="module">Git</button>
+          <button onclick="startQuiz('difference')" class="module">Difference b/w Git & GitHub</button>
+          <button onclick="startQuiz('commands')" class="module">Git Commands</button>
+          <button onclick="startQuiz('clone')" class="module">Git Clone</button>
+          <button onclick="startQuiz('pull')" class="module">Pull Requests</button>
+          <button onclick="startQuiz('collaboration')" class="module">Collaboration</button>
+          <button onclick="startQuiz('branching')" class="module">Branching</button>
+          <button onclick="startQuiz('merge_conflicts')" class="module">Merge Conflicts</button>
+          <button onclick="startQuiz('Assingment')" class="module">Assignment</button>
+          <button onclick="startQuiz('Important')" class="module">Important</button>
+          <button onclick="showInterviewPrep()" class="module">Interview Prep</button>
+        </div>
+      </div>
+
+      <!-- 💡 Interview Prep Cards -->
+<div id="interviewPrep" class="qa-section">
+  <h3>Interview Preparation</h3>
+
+  <!-- Git Commands -->
+  <div class="qa-card">
+    <div class="qa-header">
+      <input type="checkbox" id="git-check" checked />
+      <label for="git-check">50 Git Command-Based Interview Questions</label>
+    </div>
+    <ol class="question-list">
+      <li>How do you initialize a Git repository?</li>
+      <li>How do you check the current Git version?</li>
+      <li>How do you configure Git username and email globally?</li>
+      <li>How do you add a file to the staging area?</li>
+      <li>How do you commit changes with a message?</li>
+      <li>How do you view the commit history?</li>
+      <li>How do you check the status of your repository?</li>
+      <li>How do you create a new branch?</li>
+      <li>How do you list all branches?</li>
+      <li>How do you switch to another branch?</li>
+      <li>How do you merge a branch into the current branch?</li>
+      <li>How do you delete a branch locally?</li>
+      <li>How do you delete a branch remotely?</li>
+      <li>How do you rename a branch?</li>
+      <li>How do you view the differences between commits?</li>
+      <li>How do you undo the last commit?</li>
+      <li>How do you unstage a file?</li>
+      <li>How do you discard changes in a file?</li>
+      <li>How do you stash your changes?</li>
+      <li>How do you apply the last stash?</li>
+      <li>How do you list all stashes?</li>
+      <li>How do you drop a specific stash?</li>
+      <li>How do you create a tag?</li>
+      <li>How do you list all tags?</li>
+      <li>How do you delete a tag?</li>
+      <li>How do you push a tag to a remote repository?</li>
+      <li>How do you view the commit log graphically?</li>
+      <li>How do you amend the last commit message?</li>
+      <li>How do you change a commit author?</li>
+      <li>How do you revert a commit?</li>
+      <li>How do you reset to a specific commit?</li>
+      <li>How do you show details of a commit?</li>
+      <li>How do you configure aliases in Git?</li>
+      <li>How do you list all configured remotes?</li>
+      <li>How do you add a new remote repository?</li>
+      <li>How do you remove a remote repository?</li>
+      <li>How do you fetch changes from a remote?</li>
+      <li>How do you pull changes from a remote?</li>
+      <li>How do you push changes to a remote?</li>
+      <li>How do you view remote branches?</li>
+      <li>How do you rebase a branch?</li>
+      <li>How do you abort an ongoing rebase?</li>
+      <li>How do you squash commits?</li>
+      <li>How do you cherry-pick a commit?</li>
+      <li>How do you check which files are ignored by Git?</li>
+      <li>How do you clean untracked files?</li>
+      <li>How do you find who made a change in a file?</li>
+      <li>How do you check which branch you are on?</li>
+      <li>How do you see a list of recent branches?</li>
+      <li>How do you create a bare repository?</li>
+      <li>How do you verify the integrity of a repository?</li>
+    </ol>
+  </div>
+
+  <!-- GitHub Commands -->
+  <div class="qa-card">
+    <div class="qa-header">
+      <input type="checkbox" id="github-check" checked />
+      <label for="github-check">50 GitHub Command-Based Interview Questions</label>
+    </div>
+    <ol class="question-list">
+      <li>How do you create a new GitHub repository?</li>
+      <li>How do you push a local repo to GitHub?</li>
+      <li>How do you clone a GitHub repository?</li>
+      <li>How do you fork a repository on GitHub?</li>
+      <li>How do you open a pull request on GitHub?</li>
+      <li>How do you merge a pull request?</li>
+      <li>How do you check pull request status using CLI?</li>
+      <li>How do you assign reviewers to a pull request?</li>
+      <li>How do you resolve merge conflicts in GitHub?</li>
+      <li>How do you delete a GitHub repository?</li>
+      <li>How do you add collaborators to a repository?</li>
+      <li>How do you create an issue on GitHub?</li>
+      <li>How do you close an issue?</li>
+      <li>How do you reference an issue in a commit message?</li>
+      <li>How do you create a GitHub Action workflow?</li>
+      <li>How do you set up CI/CD using GitHub Actions?</li>
+      <li>How do you use GitHub Pages?</li>
+      <li>How do you host a static website on GitHub?</li>
+      <li>How do you check repository insights?</li>
+      <li>How do you use GitHub Projects?</li>
+      <li>How do you assign labels to issues?</li>
+      <li>How do you mention users in comments?</li>
+      <li>How do you create a release on GitHub?</li>
+      <li>How do you upload binaries in a release?</li>
+      <li>How do you use GitHub CLI to create repos?</li>
+      <li>How do you authenticate GitHub CLI?</li>
+      <li>How do you list all repositories of a user using CLI?</li>
+      <li>How do you view notifications in GitHub CLI?</li>
+      <li>How do you star a repository using CLI?</li>
+      <li>How do you unstar a repository?</li>
+      <li>How do you watch a repository for updates?</li>
+      <li>How do you unwatch a repository?</li>
+      <li>How do you create an organization on GitHub?</li>
+      <li>How do you manage teams in an organization?</li>
+      <li>How do you assign permissions to collaborators?</li>
+      <li>How do you enable branch protection rules?</li>
+      <li>How do you enforce code review before merging?</li>
+      <li>How do you enable required status checks?</li>
+      <li>How do you use GitHub Codespaces?</li>
+      <li>How do you open a Codespace for a repository?</li>
+      <li>How do you delete a Codespace?</li>
+      <li>How do you view GitHub API rate limits?</li>
+      <li>How do you generate a personal access token?</li>
+      <li>How do you revoke a personal access token?</li>
+      <li>How do you enable two-factor authentication?</li>
+      <li>How do you connect GitHub to VS Code?</li>
+      <li>How do you link commits to issues automatically?</li>
+      <li>How do you check repo contributors list?</li>
+      <li>How do you view pull request diff in browser?</li>
+      <li>How do you export GitHub issues?</li>
+      <li>How do you archive an inactive repository?</li>
+    </ol>
+  </div>
+        <button class="btn back" onclick="showHome()">← Back</button>
+      </div>
+
+      <!-- Quiz Section -->
+      <div id="quizBox" class="quiz" style="display:none;">
+        <div id="progressBar" class="progress-bar">
+          <div id="progress" class="progress-fill"></div>
+        </div>
+        <div id="questionWrap">
+          <h2 id="question" class="question">Question text</h2>
+          <div id="options" class="options"></div>
+        </div>
+        <div class="controls" style="display:flex;justify-content:space-between;align-items:center;">
+  <button id="backBtn" class="btn ghost" onclick="goBack()">← Back</button>
+  <button id="nextBtn" class="btn primary" onclick="nextQuestion()">Next →</button>
+</div>
+
+      </div>
+
+      <!-- Results -->
+      <div id="resultBox" class="results" style="display:none;">
+        <h2>Results</h2>
+        <p id="score"></p>
+        <div id="summary" class="summary"></div>
+        <div class="results-actions">
+          <button class="btn primary" onclick="restartQuiz()">Restart</button>
+          <button class="btn ghost" onclick="showHome()">Home</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script>
+    // --- Quiz Logic (unchanged) ---
+    let selectedModule = [];
+    let currentQuestion = 0;
+    let score = 0;
+    let answersSummary = [];
+    let timerInterval = null;
+    let timePerQuestion = 30; // seconds
+
+    const moduleSelect = document.getElementById('moduleSelect');
+    const interviewPrep = document.getElementById('interviewPrep');
+    const quizBox = document.getElementById('quizBox');
+    const resultBox = document.getElementById('resultBox');
+    const questionEl = document.getElementById('question');
+    const optionsEl = document.getElementById('options');
+    const progressEl = document.getElementById('progress');
+    const scoreDisplay = document.getElementById('score-display');
+    const timerEl = document.getElementById('timer');
+    const scoreEl = document.getElementById('score');
+    const summaryEl = document.getElementById('summary');
+
+    function startQuiz(moduleName) {
+      selectedModule = MODULES[moduleName]?.slice?.() || [];
+      if (!selectedModule.length) return;
+      moduleSelect.style.display = 'none';
+      interviewPrep.style.display = 'none';
+      resultBox.style.display = 'none';
+      quizBox.style.display = 'block';
+      currentQuestion = 0;
+      score = 0;
+      answersSummary = [];
+      updateScoreDisplay();
+      showQuestion();
+    }
+
+    function showQuestion() {
+      clearTimer();
+      const q = selectedModule[currentQuestion];
+      questionEl.textContent = (currentQuestion + 1) + ". " + q.question;
+      optionsEl.innerHTML = '';
+      q.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option';
+        btn.textContent = opt;
+        btn.onclick = () => selectAnswer(opt, btn);
+        optionsEl.appendChild(btn);
+      });
+      updateProgress();
+      startTimer(timePerQuestion);
+    }
+
+function selectAnswer(choice, btn) {
+  const q = selectedModule[currentQuestion];
+  const all = optionsEl.querySelectorAll('button');
+  all.forEach(b => b.disabled = true);
+
+  const correct = q.answer;
+  const isCorrect = choice === correct;
+
+  // ✅ Check if question already answered
+  const existing = answersSummary.find(a => a.question === q.question);
+
+  if (existing) {
+    // Adjust score if previous answer was correct
+    if (existing.chosen === existing.correct) score--;
+    existing.chosen = choice; // Update chosen answer
+  } else {
+    answersSummary.push({ question: q.question, chosen: choice, correct });
+  }
+
+  // ✅ Apply correct/wrong color
+  if (isCorrect) {
+    btn.classList.add('correct');
+    score++;
+  } else {
+    btn.classList.add('wrong');
+    all.forEach(b => {
+      if (b.textContent === correct) b.classList.add('correct');
+    });
+  }
+
+  updateScoreDisplay();
+  clearTimer();
+
+  // Short delay before going to next question
+  setTimeout(nextQuestion, 700);
+}
+function showQuestion() {
+  clearTimer();
+  const q = selectedModule[currentQuestion];
+  questionEl.textContent = (currentQuestion + 1) + ". " + q.question;
+  optionsEl.innerHTML = '';
+
+  const existing = answersSummary.find(a => a.question === q.question);
+
+  q.options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = opt;
+    btn.onclick = () => selectAnswer(opt, btn);
+
+    // highlight previously chosen answer
+    if (existing && existing.chosen === opt) {
+      btn.classList.add(existing.chosen === existing.correct ? 'correct' : 'wrong');
+      btn.disabled = true;
+    }
+
+    optionsEl.appendChild(btn);
+  });
+
+  updateProgress();
+  startTimer(timePerQuestion);
+
+  // ✅ Show/Hide Back Button
+  document.getElementById('backBtn').style.visibility = currentQuestion === 0 ? 'hidden' : 'visible';
+}
+    function nextQuestion() {
+      currentQuestion++;
+      if (currentQuestion < selectedModule.length) showQuestion();
+      else showResult();
+    }
+
+    function showResult() {
+      clearTimer();
+      quizBox.style.display = 'none';
+      resultBox.style.display = 'block';
+      scoreEl.textContent = `You scored ${score} / ${selectedModule.length}`;
+      summaryEl.innerHTML = answersSummary.map(item => `
+        <div class="review">
+          <strong>${item.question}</strong>
+          <div>Your answer: <span class="${item.chosen === item.correct ? 'good' : 'bad'}">${escapeHtml(item.chosen)}</span></div>
+          <div>Correct: <span class="good">${escapeHtml(item.correct)}</span></div>
+        </div>`).join('');
+    }
+
+    function updateProgress() {
+      const pct = Math.round((currentQuestion / selectedModule.length) * 100);
+      progressEl.style.width = pct + '%';
+    }
+
+    function updateScoreDisplay() {
+      scoreDisplay.textContent = `Score: ${score}`;
+    }
+
+    function startTimer(seconds) {
+      let left = seconds;
+      timerEl.textContent = `Time: ${left}s`;
+      timerInterval = setInterval(() => {
+        left--;
+        if (left <= 0) {
+          clearInterval(timerInterval);
+          nextQuestion();
+        } else timerEl.textContent = `Time: ${left}s`;
+      }, 1000);
+    }
+
+    function clearTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+    }
+
+    function showHome() {
+      interviewPrep.style.display = 'none';
+      quizBox.style.display = 'none';
+      resultBox.style.display = 'none';
+      moduleSelect.style.display = 'block';
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, s => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[s]));
+    }
+
+    // --- Show Interview Prep ---
+    function showInterviewPrep() {
+      moduleSelect.style.display = 'none';
+      interviewPrep.style.display = 'block';
+    }
+
+    // --- Toggle question lists ---
+    document.addEventListener('change', e => {
+      if (e.target.matches('.qa-header input')) {
+        const list = e.target.closest('.qa-card').querySelector('.question-list');
+        list.style.display = e.target.checked ? 'block' : 'none';
+      }
+    });
+    function goBack() {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    showQuestion();
+  }
+}
+
+  </script>
+</body>
+</html>
